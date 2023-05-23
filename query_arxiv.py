@@ -13,14 +13,13 @@ import json
 #OpenAIのapiキー
 openai.api_key = 'your openai key'
 
-prompt = """与えられた論文の要点をまとめ、以下の項目で日本語で出力せよ。それぞれの項目は最大でも180文字以内に要約せよ。
+prompt = """Summarize the key points of the given paper in English according to the following categories. Each category should be summarized in no more than 180 words.
 ```
-論文名:タイトルの日本語訳
-キーワード:この論文のキーワード
-課題:この論文が解決する課題
-手法:この論文が提案する手法
-結果:提案手法によって得られた結果
-```"""
+Title: The title
+Keywords: Keywords of this paper
+Problem: The problem this paper addresses
+Method: The method proposed by this paper
+Results: The results achieved by the proposed method```"""
 
 def get_summary(result):
     text = f"title: {result.title}\nbody: {result.summary}"
@@ -40,15 +39,15 @@ def get_summary(result):
     dict = {}    
     for b in summary.split('\n'):
         print("****", b)
-        if b.startswith("論文名"):
+        if b.startswith("Title"):
             dict['title_jp'] = b[4:].lstrip()
-        if b.startswith("キーワード"):
+        if b.startswith("Keywords"):
             dict['keywords'] = b[6:].lstrip()
-        if b.startswith("課題"):
+        if b.startswith("Problem"):
             dict['problem'] = b[3:].lstrip()
-        if b.startswith("手法"):
+        if b.startswith("Method"):
             dict['method'] = b[3:].lstrip()
-        if b.startswith("結果"):
+        if b.startswith("Results"):
             dict['result'] = b[3:].lstrip()
     print("Dict by ChatGPT", dict)
     return dict
