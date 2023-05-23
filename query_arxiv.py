@@ -37,7 +37,7 @@ def get_summary(result):
     summary = response['choices'][0]['message']['content']
     print("#### GPT", summary)
     dict = {}
-    dict['title' = result.title
+    dict['title'] = result.title
     for b in summary.split('\n'):
         print("****", b)
         if b.startswith("Keywords"):
