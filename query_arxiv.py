@@ -125,7 +125,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--year', '-y', type=int, help='from year', default=2017)
     parser.add_argument('--dir', "-d", type=str, help='destination', default='./xmls')
-    parser.add_argument('--num', "-n", type=int, help='number of papers', default=0)    
+    parser.add_argument('--num', "-n", type=int, help='number of papers', default=3)    
     parser.add_argument('positional_args', nargs='+', help='query keywords')
     args = parser.parse_args()
 
