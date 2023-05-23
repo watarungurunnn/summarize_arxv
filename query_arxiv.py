@@ -39,16 +39,14 @@ def get_summary(result):
     dict = {}    
     for b in summary.split('\n'):
         print("****", b)
-        if b.startswith("Title"):
-            dict['title_jp'] = b[4:].lstrip()
         if b.startswith("Keywords"):
-            dict['keywords'] = b[6:].lstrip()
+            dict['keywords'] = b[10:].lstrip()
         if b.startswith("Problem"):
-            dict['problem'] = b[3:].lstrip()
+            dict['problem'] = b[7:].lstrip()
         if b.startswith("Method"):
-            dict['method'] = b[3:].lstrip()
+            dict['method'] = b[6:].lstrip()
         if b.startswith("Results"):
-            dict['result'] = b[3:].lstrip()
+            dict['result'] = b[7:].lstrip()
     print("Dict by ChatGPT", dict)
     return dict
 
